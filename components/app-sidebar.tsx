@@ -42,28 +42,28 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
       title: "Xp History",
-      url: "#",
+      url: "/history",
       icon: IconListDetails,
     },
     {
       title: "Analytics",
-      url: "#",
+      url: "/analytics",
       icon: IconChartBar,
     },
     {
       title: "Groups",
-      url: "#",
+      url: "/group",
       icon: IconUsers,
     },
     {
       title: "Quiz",
       icon: IconFileAi,
-      url: "#"
+      url: "/quiz"
     }
   ],
   navClouds: [
@@ -109,17 +109,22 @@ const data = {
   documents: [
     {
       name: "Students",
-      url: "#",
+      url: "/dashboar/student",
       icon: IconDatabase,
     },
     {
       name: "Teachers",
-      url: "#",
+      url: "/dashboar/teacher",
       icon: IconReport,
     },
     {
       name: "Teachers Admin",
-      url: "#",
+      url: "/dashboar/admin-teacher",
+      icon: IconFileWord,
+    },
+    {
+      name: "Teachers Admin",
+      url: "/dashboar/admin",
       icon: IconFileWord,
     },
   ],
