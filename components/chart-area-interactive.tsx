@@ -29,10 +29,11 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
+import { renameChartKeys } from "@/lib/utils"
 
 export const description = "An interactive area chart"
 
-const chartData = [
+const dataLebal = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
   { date: "2024-04-02", desktop: 97, mobile: 180 },
   { date: "2024-04-03", desktop: 167, mobile: 120 },
@@ -126,23 +127,25 @@ const chartData = [
   { date: "2024-06-30", desktop: 446, mobile: 400 },
 ]
 
-const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  desktop: {
-    label: "Desktop",
-    color: "var(--primary)",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "var(--primary)",
-  },
-} satisfies ChartConfig
 
-export function ChartAreaInteractive() {
+export function ChartAreaInteractive({ title = "Total Users", description = "Total for the last 3 months", label = "Students", label2 = "Teachers" }) {
   const isMobile = useIsMobile()
   const [timeRange, setTimeRange] = React.useState("90d")
+
+  const chartData = renameChartKeys(dataLebal, label, label2)
+  const chartConfig = {
+    visitors: {
+      label: "Visitors",
+    },
+    desktop: {
+      label: "Desktop",
+      color: "var(--primary)",
+    },
+    mobile: {
+      label: "Mobile",
+      color: "var(--primary)",
+    },
+  } satisfies ChartConfig
 
   React.useEffect(() => {
     if (isMobile) {
@@ -167,10 +170,10 @@ export function ChartAreaInteractive() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
-            Total for the last 3 months
+            {description}
           </span>
           <span className="@[540px]/card:hidden">Last 3 months</span>
         </CardDescription>
@@ -218,12 +221,12 @@ export function ChartAreaInteractive() {
               <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
-                  stopColor="var(--color-desktop)"
+                  stopColor="yellow"
                   stopOpacity={1.0}
                 />
                 <stop
                   offset="95%"
-                  stopColor="var(--color-desktop)"
+                  stopColor="yellow"
                   stopOpacity={0.1}
                 />
               </linearGradient>
@@ -271,17 +274,17 @@ export function ChartAreaInteractive() {
               }
             />
             <Area
-              dataKey="mobile"
+              dataKey={label}
               type="natural"
               fill="url(#fillMobile)"
               stroke="var(--color-mobile)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey={label2}
               type="natural"
               fill="url(#fillDesktop)"
-              stroke="var(--color-desktop)"
+              stroke="yellow"
               stackId="a"
             />
           </AreaChart>

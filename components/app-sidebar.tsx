@@ -102,29 +102,29 @@ const data = {
   navSecondary: [
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: IconSettings,
     }
   ],
   documents: [
     {
       name: "Students",
-      url: "/dashboar/student",
+      url: "/dashboard/student",
       icon: IconDatabase,
     },
     {
       name: "Teachers",
-      url: "/dashboar/teacher",
+      url: "/dashboard/teacher",
       icon: IconReport,
     },
     {
       name: "Teachers Admin",
-      url: "/dashboar/admin-teacher",
+      url: "/dashboard/admin-teacher",
       icon: IconFileWord,
     },
     {
-      name: "Teachers Admin",
-      url: "/dashboar/admin",
+      name: "Admin",
+      url: "/dashboard/admin",
       icon: IconFileWord,
     },
   ],

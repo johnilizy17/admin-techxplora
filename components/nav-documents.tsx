@@ -40,8 +40,8 @@ export function NavDocuments({
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
-          <SidebarMenuItem key={item.name}>
+        {items.map((item, key) => (
+          <SidebarMenuItem key={key}>
             <SidebarMenuButton asChild>
               <a href={item.url}>
                 <item.icon />
